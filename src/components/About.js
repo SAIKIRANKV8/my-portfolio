@@ -12,7 +12,7 @@ function urlFor(source) {
 export default function About() {
     const [author, setAuthor] = useState(null);
 
-    useState(() => {
+    useEffect(() => {
         sanityClient
         .fetch(
             `*[_type == "author"]{
