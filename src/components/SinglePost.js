@@ -13,6 +13,7 @@ export default function SinglePost() {
     const [singlePost, setSinglePost] = useState(null);
     const { slug } = useParams();
 
+
     useEffect(() => {
       sanityClient.fetch(`*[slug.current == "${slug}"]{
           title,
@@ -27,7 +28,9 @@ export default function SinglePost() {
           body,
           "name": author->name,
           "authorImage": author->image
-      }`).then((data) => setSinglePost(data[0]))
+      }`
+      )
+      .then((data) => setSinglePost(data[0]))
       .catch(console.error);
     }, [slug]);
 
@@ -71,5 +74,5 @@ export default function SinglePost() {
              </div>
          </article>
      </main>
- )
+ );
 }
