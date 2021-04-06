@@ -10,5 +10,5 @@ export default function Home() {
              <h1 className="text-6xl text-green-100 font-bold cursive leading-none lg:leading-snug home-name">Hi, I'm SaiKiran.</h1>
          </section>
      </main>
- )
+ );
 }

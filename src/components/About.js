@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import sanityClient from "../client";
 import Backs from "../Backs.jpg";
 import imageUrlBuilder from "@sanity/image-url";
-import BlockContent from "@sanity/block-content-to-react";
+{/*import BlockContent from "@sanity/block-content-to-react";*/}
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -17,7 +17,7 @@ export default function About() {
         .fetch(
             `*[_type == "author"]{
                 name,
-                bio,
+                "bio": bio[0].children[0].text,
                 "authorImage": image.asset->url
             }`
         )
@@ -25,7 +25,7 @@ export default function About() {
         .catch(console.error);
     }, []);
 
-    if (!author) return <div>Loading...</div>
+    if (!author) return <div>Loading...</div>;
 
 
  return (
@@ -39,16 +39,16 @@ export default function About() {
                          Hi, I'm{" "}
                          <span className="text-green-100">{author.name}</span>
                      </h1>
-                     <div className="prose lg:prose-xl text-white">
-                     <BlockContent 
-                         blocks={author.bio}
+                     <p className="text-green-200 text-lg"{author.bio}></p>
+                      
+                        {/*blocks={author.bio}
                          projectId="tnmuaor1"
-                         dataset="production"
-                     />
-                     </div>
+                         dataset="production"*/}
+                     
+                     
                  </div>
              </section>
          </div>
      </main>
- )
+ );
 }
