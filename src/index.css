@@ -16,3 +16,8 @@
 .home-name {
   font-size: 150px;
 }
+@media and (max-width: 1800px) and (min-width: 1300px){
+html{
+min-width: 100%;
+}
+   }
