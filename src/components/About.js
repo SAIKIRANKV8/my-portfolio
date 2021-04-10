@@ -39,7 +39,7 @@ export default function About() {
                          Hi, I'm{" "}
                          <span className="text-green-100">{author.name}</span>
                      </h1>
-                     <p className="text-green-200 text-lg"{author.bio}></p>
+                     <p className="text-green-200 text-lg">{author.bio}</p>
                       
                         {/*blocks={author.bio}
                          projectId="tnmuaor1"
